@@ -4,7 +4,6 @@
       <div id="content">
        
         @include('layouts.navbarTop')
-
         
       <p style="font-size: 30px">Hello <strong><b>{{ Auth::user()->name }}</b></strong>,, Welcome to Polije Management System</p>
 
@@ -12,7 +11,7 @@
         <section>
           
           <div class="gallery">
-            <div class="content ps-3">
+            <div class="content ps-3 ">
               {{-- <i class="fa-solid fa-cart-shopping" style="color: #612c96"></i> --}}
               <img src="{{ asset('assets/students.png') }}" alt="" width="30" height="30" class="">
               <p>Total Mahasiswa</p>
@@ -35,11 +34,10 @@
             </div>
 
             
-            <div class="content-2">
+            <div class="content-2 d-flex justify-content-center">
               <canvas id="chartJumlahSiswa"></canvas>
-
             </div>
-            <div class="content-2">
+            <div class="content-2 d-flex justify-content-center">
              <canvas id="chartJumlahSiswaPerkota"></canvas>
             </div>
           </div>
@@ -54,35 +52,35 @@
      
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script>
-          var ctx = document.getElementById('chartJumlahSiswa').getContext('2d');
-          var chart = new Chart(ctx, {
-              type: 'doughnut',
-              data: {
-                  labels: {!! json_encode($jenisKelaminLabels) !!},
-                  datasets: [{
-                      label: 'Jumlah Mahasiswa Berdasarkan Jenis Kelamin',
-                      data: {!! json_encode($jumlahSiswa) !!},
-                      backgroundColor: [
-                          'rgba(255, 99, 132, 0.2)',
-                          'rgba(54, 162, 235, 0.2)',
-                      ],
-                      borderColor: [
-                          'rgba(255, 99, 132, 1)',
-                          'rgba(54, 162, 235, 1)',
-                      ],
-                      borderWidth: 1
-                  }]
-              },
-              options: {
-                  scales: {
-                      yAxes: [{
-                          ticks: {
-                              beginAtZero: true
-                          }
-                      }]
-                  }
-              }
-          });
+        var ctx = document.getElementById('chartJumlahSiswa').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: {!! json_encode($jenisKelaminLabels) !!},
+                datasets: [{
+                    label: 'Jumlah Mahasiswa Berdasarkan Jenis Kelamin',
+                    data: {!! json_encode($jumlahSiswa) !!},
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
       </script>
 
       <script>

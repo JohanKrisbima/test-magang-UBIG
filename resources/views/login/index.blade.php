@@ -89,7 +89,7 @@
                 style="top: 28px; right: 15px; background-color: transparent"
                 id="show-password"
                 >
-                <i class="bi bi-eye fs-4"></i>
+                {{-- <i class="bi bi-eye fs-4"></i> --}}
                 </button>
             </div>
 

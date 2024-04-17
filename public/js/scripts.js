@@ -8,6 +8,9 @@ const sideBarCollapse = document.getElementById("sidebarCollapse");
 const sidebar = document.getElementById("sidebar");
 
 sideBarCollapse.addEventListener("click", () => {
-  console.log("yese");
-  sidebar.classList.toggle("active");
+    console.log("yese");
+    sidebar.classList.toggle("active");
 });
+
+
+
