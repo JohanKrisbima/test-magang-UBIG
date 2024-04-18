@@ -7,6 +7,7 @@
 
     <form action="/updateKota/{{ $kota->id }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="d-grid gap-1 col-6 mx-auto mb-5">
               <h1 class="d-flex justify-content-center mb-4">Update Data Kota</h1>
               

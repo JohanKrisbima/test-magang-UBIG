@@ -81,12 +81,16 @@
                 <td>{{ $m->alamat }}</td>
                 <td>{{ $m->kota }}</td>
                 <td>
-                  <a href="/updateMahasiswa/{{ $m->id }}" style="margin-right: 5px">
-                    <button type="button" class="btn btn-outline-success" style="font-size: 14px">Update</button>
-                  </a> 
-                  <a href="/deleteMahasiswa/{{ $m->id }}" onclick="return confirm('Apakah Anda yakin ingin menghapus data Mahasiswa ini?')">
-                    <button type="button" class="btn btn-outline-danger" style="font-size: 14px">Delete</button>
-                  </a>
+                  <div class="d-flex justify-content-start">
+                    <a href="/updateMahasiswa/{{ $m->id }}" style="margin-right: 5px">
+                      <button type="button" class="btn btn-outline-success" style="font-size: 14px">Update</button>
+                    </a> 
+                    <form action="/deleteMahasiswa/{{ $m->id }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-outline-danger" style="font-size: 14px"  onclick="return confirm('Apakah Anda yakin ingin menghapus data Mahasiswa ini?')">Delete</button>
+                    </form>
+                 </div>
                 </td>
               </tr>
             @endforeach  

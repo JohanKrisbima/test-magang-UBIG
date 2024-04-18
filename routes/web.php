@@ -31,13 +31,13 @@ Route::get('/mahasiswa/search', [MahasiswaController::class, 'search'])->Middlew
 Route::get('/addData', [MahasiswaController::class, 'addData'])->Middleware('auth');
 Route::post('/createMahasiswa', [MahasiswaController::class, 'create'])->Middleware('auth');
 Route::get('/updateMahasiswa/{Mahasiswa:id}', [MahasiswaController::class, 'updateMahasiswa'])->Middleware('auth');
-Route::post('/updateMahasiswa/{Mahasiswa:id}', [MahasiswaController::class, 'update'])->Middleware('auth');
-Route::get('/deleteMahasiswa/{Mahasiswa:id}', [MahasiswaController::class, 'destroy'])->Middleware('auth');
+Route::put('/updateMahasiswa/{Mahasiswa:id}', [MahasiswaController::class, 'update'])->Middleware('auth');
+Route::delete('/deleteMahasiswa/{Mahasiswa:id}', [MahasiswaController::class, 'destroy'])->Middleware('auth');
 
 
 Route::get('/kota', [KotaController::class, 'index'])->Middleware('auth');
 Route::get('/addKota', [KotaController::class, 'addData'])->Middleware('auth');
 Route::post('/createKota', [KotaController::class, 'create'])->Middleware('auth');
-Route::get('/deleteKota/{Kota:id}', [KotaController::class, 'destroy'])->Middleware('auth');
+Route::delete('/deleteKota/{Kota:id}', [KotaController::class, 'destroy'])->Middleware('auth');
 Route::get('/updateKota/{Kota:id}', [KotaController::class, 'updateKota'])->Middleware('auth');
-Route::post('/updateKota/{Kota:id}', [KotaController::class, 'update'])->Middleware('auth');
+Route::put('/updateKota/{Kota:id}', [KotaController::class, 'update'])->Middleware('auth');

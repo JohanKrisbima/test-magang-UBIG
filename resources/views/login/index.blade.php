@@ -44,14 +44,7 @@
                 class="d-flex justify-content-center align-items-center gap-1 mb-3"
                 >
                 <figure class="d-flex align-items-center gap-2">
-                    <img
-                    id="gambar"
-                    width="50"
-                    height="50"
-                    class="text-light p-1  rounded"
-                    src="{{ asset('assets/polije.jpeg') }}"
-                    alt="Contoh Gambar"
-                    />
+                    <img id="gambar" width="50" height="50" class="text-light p-1 rounded" src="{{ asset('assets/polije.jpeg') }}" alt="Contoh Gambar"/>
                     <figcaption class="fs-6 fw-semibold text-center text-primary">
                         Politeknik Negeri Jember
                     </figcaption>
@@ -61,46 +54,16 @@
             </div>
             <div class="form-group mb-2">
                 <label for="username" class="sr-only mb-1">Email</label>
-                <input
-                type="text"
-                name="email"
-                id="email"
-                class="form-control"
-                placeholder="jo@gmail.com"
-                autocomplete="email"
-                required
-                />
+                <input type="text" name="email" id="email" class="form-control" placeholder="jo@gmail.com" autocomplete="email" required/>
                 <!-- DOM input ini -->
             </div>
             <div class="form-group mb-3 position-relative">
                 <label for="password" class="sr-only mb-1">Password</label>
-                <input
-                type="password"
-                name="password"
-                id="password"
-                class="form-control"
-                placeholder="Password"
-                autocomplete="current-password"
-                required
-                />
-                <button
-                type="button"
-                class="position-absolute"
-                style="top: 28px; right: 15px; background-color: transparent"
-                id="show-password"
-                >
-                {{-- <i class="bi bi-eye fs-4"></i> --}}
-                </button>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password" autocomplete="current-password" required/>
+                <button type="button" class="position-absolute" style="top: 28px; right: 15px; background-color: transparent" id="show-password"></button>
             </div>
 
-            <button
-                type="submit"
-                class="btn btn-log btn-block btn-thm2 adhim mt-3"
-                style="background-color: #003666; color: #fff; width: 100%"
-                id="loginbtn"
-            >
-                Log in
-            </button>
+            <button type="submit" class="btn btn-log btn-block btn-thm2 adhim mt-3" style="background-color: #003666; color: #fff; width: 100%" id="loginbtn">Log in</button>
             </form>
 
             <hr class="my-5" />

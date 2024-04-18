@@ -40,12 +40,16 @@
                 <td>{{ $distrik->kota }}</td>
                
                 <td>
-                  <a href="/updateKota/{{ $distrik->id }}" style="margin-right: 5px">
-                    <button type="button" class="btn btn-outline-success" style="font-size: 14px">Update</button>
-                  </a>
-                  <a href="/deleteKota/{{ $distrik->id }}" onclick="return confirm('Apakah Anda yakin ingin menghapus data Kota ini?')">
-                    <button type="button" class="btn btn-outline-danger" style="font-size: 14px">Delete</button>
-                  </a>
+                  <div class="d-flex justify-content-start">
+                    <a href="/updateKota/{{ $distrik->id }}" style="margin-right: 5px">
+                      <button type="button" class="btn btn-outline-success" style="font-size: 14px">Update</button>
+                    </a>
+                    <form action="/deleteKota/{{ $distrik->id }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-outline-danger" style="font-size: 14px" onclick="return confirm('Apakah Anda yakin ingin menghapus data Kota ini?')">Delete</button>
+                    </form>
+                  </div>
                 </td>
               </tr>
             @endforeach  
