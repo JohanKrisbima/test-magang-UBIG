@@ -53,7 +53,7 @@ class KotaController extends Controller
     public function update(Request $request, $id)
     {
         $kota = Kota::find($id);
-
+        
         // $kota->id = $request->id;
         $kota->kota = $request->kota;
        

@@ -40,7 +40,7 @@
         <form action="/mahasiswa/search" method="GET" class="d-flex justify-content-end">
           {{-- <div class="small fw-light"><strong><b>Cari Data Mahasiswa</b></strong></div> --}}
           <div class="input-group">
-              <input class="form-control border-end-0 border rounded-pill" type="search" name="search" placeholder="cari berdasarkan nim">
+              <input class="form-control border-end-0 border rounded-pill" type="search" name="search" placeholder="cari berdasarkan nim/perguruan">
               <span class="input-group-append">
                   <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="submit">
                       <i class="fa fa-search"></i>
@@ -67,6 +67,7 @@
             <th scope="col">Jenis Kelamin</th>
             <th scope="col">Alamat</th>
             <th scope="col">Kota</th>
+            <th scope="col">Perguruan</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
@@ -80,6 +81,7 @@
                 <td>{{ $m->jenis_kelamin }}</td>
                 <td>{{ $m->alamat }}</td>
                 <td>{{ $m->kota }}</td>
+                <td>{{ $m->perguruan }}</td>
                 <td>
                   <div class="d-flex justify-content-start">
                     <a href="/updateMahasiswa/{{ $m->id }}" style="margin-right: 5px">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use App\Models\Kota;
+use App\Models\perguruan;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -20,12 +21,13 @@ class MahasiswaController extends Controller
     }
 
     public function addData(){
-
+        $perguruan = perguruan::all();
         $kota = Kota::all();
 
         return view('mahasiswa.addData',[
             'title' => 'Data Mahasiswa',
-            'kota' => $kota
+            'kota' => $kota,
+            'perguruan' => $perguruan,
         ]);
     }
 
@@ -39,6 +41,7 @@ class MahasiswaController extends Controller
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
             'kota' => 'required',
+            'perguruan' => 'required'
             // Tambahkan validasi untuk field lainnya
         ]);
 
@@ -58,13 +61,15 @@ class MahasiswaController extends Controller
     public function updateMahasiswa($id)
     {
         $mhs = Mahasiswa::find($id);
+        $perguruan = perguruan::all();
 
         $kota = Kota::all();
 
         return view('mahasiswa.update',[
             'title' => 'Data Mahasiswa',
             'mhs' => $mhs,
-            'kota' => $kota
+            'kota' => $kota,
+            'perguruan' => $perguruan
         ]);
     }
 
@@ -78,6 +83,8 @@ class MahasiswaController extends Controller
         $mahasiswa->jenis_kelamin = $request->jenis_kelamin;
         $mahasiswa->alamat = $request->alamat;
         $mahasiswa->kota = $request->kota;
+        $mahasiswa->perguruan = $request->perguruan;
+        
 
         
         $mahasiswa->update();
@@ -97,7 +104,11 @@ class MahasiswaController extends Controller
 
     public function search(Request $request){
         if($request->has('search')){
-            $mahasiswa = Mahasiswa::where('nim', 'LIKE', '%' .$request->search. '%')->get();
+            // $mahasiswa = Mahasiswa::where('nim', 'LIKE', '%' .$request->search. '%')->get();
+
+            $mahasiswa = Mahasiswa::where('nim', 'LIKE', '%' . $request->search . '%')
+                       ->orWhere('perguruan', 'LIKE', '%' . $request->search . '%')
+                       ->get();
 
             if ($mahasiswa->isEmpty()) {
                 // Jika tidak ditemukan hasil pencarian, redirect ke '/mahasiswa'

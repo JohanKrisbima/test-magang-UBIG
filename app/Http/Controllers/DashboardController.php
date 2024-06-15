@@ -25,7 +25,7 @@ class DashboardController extends Controller
 
         $siswaPerTahun = Mahasiswa::select(DB::raw('YEAR(tgl_lahir) AS tahun'), DB::raw('COUNT(*) AS total'))
         ->groupBy(DB::raw('YEAR(tgl_lahir)'))
-        ->orderBy(DB::raw('YEAR(tgl_lahir)'))
+        ->orderBy(DB::raw('YEAR(tgl_lahir)')) //Mengurutkan hasil berdasarkan tahun dari kolom tgl_lahir 
         ->get();
 
 

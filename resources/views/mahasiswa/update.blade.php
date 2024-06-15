@@ -45,6 +45,13 @@
                         <option value="{{ $distrik->kota }}">{{ $distrik->kota }}</option>
                     @endforeach
                 </select>
+              <div class="mb-3">
+                <label for="perguruan" class="form-label">perguruan</label>
+                <select id="perguruan" class="form-select" name="perguruan" required>
+                    @foreach($perguruan as $p)
+                        <option value="{{ $p->perguruan }}">{{ $p->perguruan }}</option>
+                    @endforeach
+                </select>
               </div>
               <button type="submit" class="btn btn-primary mb-5" style="width: 80px">Update</button>
         </div>
